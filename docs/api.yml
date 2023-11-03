@@ -18,6 +18,19 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: interval
+          description: The interval to filter the book
+          required: false
+          schema:
+            type: object
+            properties:
+              startDate:
+                type: string
+                format: date
+              endDate:
+                type: string
+                format: date
         #TODO3: add parameter to filter books by intervals of dates of the releaseDate
       responses:
         200:

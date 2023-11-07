@@ -84,6 +84,7 @@ paths:
                   $ref: '#/components/schemas/Book'
   /books/authors:
     put:
+      description: Change authors of some books
       requestBody:
         content:
           application/json:

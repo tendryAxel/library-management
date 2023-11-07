@@ -81,13 +81,38 @@ paths:
             type: string
           required: true
         - in: path
-          name: author
+          name: authorId
           schema:
             type: string
           required: true
       responses:
         200:
-          description: The list of 
+          description: The list of books modified
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /books/{bookId}/topics/{topicsId}:
+    put:
+      tags:
+        - Books
+      description: Change the topics of one book
+      parameters:
+        - in: path
+          name: bookId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: topicsId
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          description: The list of books modified
           content:
             application/json:
               schema:
@@ -260,8 +285,6 @@ components:
           type: string
         pageNumbers:
           type: integer
-        topic:
-          $ref: "#/components/schemas/Topics"
         releaseDate:
           type: string
           format: date
@@ -295,3 +318,5 @@ components:
       properties:
         author:
           $ref: '#/components/schemas/Author'
+        topic:
+          $ref: "#/components/schemas/Topics"

@@ -177,6 +177,26 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+  /authors/{id}:
+    delete:
+      tags:
+        - Authors
+      operationId: deleteAuthor
+      summary: delete one author
+      parameters:
+        - in: query
+          name: id
+          description: id of the author
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Deleted authors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
   /authors:
     get:
       tags:
@@ -224,22 +244,24 @@ paths:
     delete:
       tags:
         - Authors
-      operationId: deleteAuthor
-      summary: delete author
-      parameters:
-        - in: query
-          name: id
-          description: id of the author
-          required: true
-          schema:
-            type: integer
+      operationId: deleteAuthors
+      summary: delete authors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
       responses:
         200:
-          description: The deleted author
+          description: The deleted authors
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Author"
+                type: array
+                items:
+                  $ref: "#/components/schemas/Author"
   /authorTopics:
     get:
       tags:

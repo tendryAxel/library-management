@@ -50,7 +50,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/BookWithoutAuthor'
       responses:
         200:
           description: The list of created or updated books
@@ -119,6 +119,24 @@ paths:
                 $ref: "#/components/schemas/Author"
 components:
   schemas:
+    BookWithoutAuthor:
+      type: object
+      properties:
+        id:
+          type: string
+        bookName:
+          type: string
+        pageNumbers:
+          type: integer
+        topic:
+          type: string
+          enum:
+            - ROMANCE
+            - COMEDY
+            - OTHER
+        releaseDate:
+          type: string
+          format: date
     Author:
       type: object
       properties:
@@ -133,21 +151,8 @@ components:
             - F
     Book:
       type: object
+      allOf:
+        - $ref: '#/components/schemas/BookWithoutAuthor'
       properties:
-        id:
-          type: string
-        bookName:
-          type: string
         author:
           $ref: '#/components/schemas/Author'
-        pageNumbers:
-          type: integer
-        topic:
-          type: string
-          enum:
-            - ROMANCE
-            - COMEDY
-            - OTHER
-        releaseDate:
-          type: string
-          format: date

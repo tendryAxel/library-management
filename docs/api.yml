@@ -60,6 +60,54 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+  /books/{bookId}/authors/{authorId}:
+    put:
+      parameters:
+        - in: path
+          name: bookId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: author
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          description: The list of 
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /books/authors:
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - bookId
+                  - authorId
+                properties:
+                  bookId:
+                    type: string
+                  authorId:
+                    type: string
+      responses:
+        200:
+          description: The list of 
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
   /authors:
     get:
       operationId: getAuthor

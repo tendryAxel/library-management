@@ -21,6 +21,24 @@ paths:
           schema:
             type: string
         - in: query
+          name: releaseDateMin
+          description: |
+            if `releaseDateMax` is not provided,
+            `releaseDateMin` is ignored
+          schema:
+            type: string
+            format: date
+          required: false
+        - in: query
+          name: releaseDateMax
+          description: |
+            if `releaseDateMin` is not provided,
+            `releaseDateMax` is ignored
+          schema:
+            type: string
+            format: date
+          required: false
+        - in: query
           name: interval
           description: The interval to filter the book
           required: false

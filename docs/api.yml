@@ -209,6 +209,27 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Topics"
+    put:
+      tags:
+        - Topics
+      operationId: crupdateTopics
+      summary: Create or update list of topics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Topics"
+      responses:
+        200:
+          description: The list of created or updated topics
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Topics"
 components:
   schemas:
     CrupdateBook:

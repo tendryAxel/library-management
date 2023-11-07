@@ -198,14 +198,21 @@ components:
         pageNumbers:
           type: integer
         topic:
+          $ref: "#/components/schemas/Topics"
+        releaseDate:
+          type: string
+          format: date
+    Topics:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
           type: string
           enum:
             - ROMANCE
             - COMEDY
             - OTHER
-        releaseDate:
-          type: string
-          format: date
     Author:
       type: object
       properties:

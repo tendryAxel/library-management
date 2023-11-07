@@ -240,6 +240,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Author"
+  /authorTopics:
+    get:
+      tags:
+        - Authors
+      parameters:
+        - in: query
+          name: authorId
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: get all author topics
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Topics"
   /topics:
     get:
       tags:

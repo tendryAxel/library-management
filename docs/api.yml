@@ -62,6 +62,7 @@ paths:
                   $ref: '#/components/schemas/Book'
   /books/{bookId}/authors/{authorId}:
     put:
+      description: Change the author of one book
       parameters:
         - in: path
           name: bookId

@@ -148,6 +148,35 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+  /books/topics:
+    put:
+      tags:
+        - Books
+      description: Change topcis of some books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - bookId
+                  - topicsId
+                properties:
+                  bookId:
+                    type: string
+                  topicsId:
+                    type: string
+      responses:
+        200:
+          description: The list of 
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
   /authors:
     get:
       tags:

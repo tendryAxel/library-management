@@ -230,6 +230,25 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Topics"
+    delete:
+      tags:
+        - Topics
+      operationId: deleteTopics
+      summary: delete topics
+      parameters:
+        - in: query
+          name: id
+          description: id of the topics
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: The deleted topics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Topics"
 components:
   schemas:
     CrupdateBook:

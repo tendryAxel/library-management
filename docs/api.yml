@@ -186,6 +186,29 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Author"
+  /topics:
+    get:
+      tags:
+        - Topics
+      operationId: getTopics
+      summary: Get all Topics
+      description: The returned topics are filtered by name
+      parameters:
+        - in: query
+          name: topicsName
+          description: Filter the return topics by given name
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: The list of filtered topics
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Topics"
 components:
   schemas:
     CrupdateBook:

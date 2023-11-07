@@ -152,7 +152,7 @@ components:
     Book:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BookWithoutAuthor'
+        - $ref: '#/components/schemas/CrupdateBook'
       properties:
         author:
           $ref: '#/components/schemas/Author'

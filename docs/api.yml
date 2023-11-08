@@ -347,6 +347,34 @@ paths:
           $ref: "#/components/responses/403"
         500:
           $ref: "#/components/responses/500"
+  /authors/import:
+    post:
+      tags:
+        - Authors
+      operationId: importAuthors
+      summary: index authors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AuthorWithoutId"
+      responses:
+        200:
+          description: The list of indexed authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Author"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
 components:
   schemas:
     BooksWithoutId:
@@ -371,11 +399,9 @@ components:
       properties:
         id:
           type: string
-    Author:
+    AuthorWithoutId:
       type: object
       properties:
-        id:
-          type: integer
         name:
           type: string
         sex:
@@ -383,6 +409,12 @@ components:
           enum:
             - M
             - F
+    Author:
+      allOf:
+        - $ref: '#/components/schemas/Author'
+      properties:
+        id:
+          type: integer
     Book:
       type: object
       allOf:

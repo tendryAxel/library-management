@@ -38,20 +38,8 @@ paths:
             type: string
             format: date
           required: false
-        - in: query
-          name: page
-          description: index of the page with pagination
-          schema:
-            type: integer
-            default: 1
-          required: false
-        - in: query
-          name: pageSize
-          description: size of page in pagination
-          schema:
-            type: integer
-            default: 50
-          required: false
+        - $ref: "#/components/parameters/queryPage"
+        - $ref: "#/components/parameters/queryPageSize"
       responses:
         200:
           description: The list of filtered books
@@ -320,3 +308,20 @@ components:
       properties:
         author:
           $ref: '#/components/schemas/Author'
+  parameters:
+    queryPage:
+      in: query
+      name: page
+      description: index of the page with pagination
+      schema:
+        type: integer
+        default: 1
+      required: false
+    queryPageSize:
+      in: query
+      name: pageSize
+      description: size of page in pagination
+      schema:
+        type: integer
+        default: 50
+      required: false

@@ -38,6 +38,20 @@ paths:
             type: string
             format: date
           required: false
+        - in: query
+          name: page
+          description: index of the page with pagination
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description: size of page in pagination
+          required: false
+          schema:
+            type: integer
+            default: 50
         #TODO3: add parameter to filter books by intervals of dates of the releaseDate
       responses:
         200:
@@ -197,6 +211,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Author'
+  /authors/{page}/{pageSize}:
+    get:
+      tags:
+        - Authors
+      operationId: getAuthorPagination
+      summary: Get all authors
+      description: The returned author are filtered by name
+      parameters:
+        - in: query
+          name: authorName
+          description: Filter the return author by given name
+          required: false
+          schema:
+            type: string
+        - in: path
+          name: page
+          description: index of the page with pagination
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: pageSize
+          description: size of page in pagination
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: The list of filtered author
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Author"
   /authors:
     get:
       tags:
@@ -272,6 +321,20 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: page
+          description: index of the page with pagination
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description: size of page in pagination
+          required: false
+          schema:
+            type: integer
+            default: 50
       responses:
         200:
           description: get all author topics
@@ -295,6 +358,20 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: page
+          description: index of the page with pagination
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description: size of page in pagination
+          required: false
+          schema:
+            type: integer
+            default: 50
       responses:
         200:
           description: The list of filtered topics

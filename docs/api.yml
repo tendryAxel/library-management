@@ -183,18 +183,8 @@ paths:
           required: false
           schema:
             type: string
-        - in: path
-          name: page
-          description: index of the page with pagination
-          required: true
-          schema:
-            type: integer
-        - in: path
-          name: pageSize
-          description: size of page in pagination
-          required: true
-          schema:
-            type: integer
+        - $ref: "#/components/parameters/pathPage"
+        - $ref: "#/components/parameters/pathPageSize"
       responses:
         200:
           description: The list of filtered author
@@ -325,3 +315,19 @@ components:
         type: integer
         default: 50
       required: false
+    pathPage:
+      in: path
+      name: page
+      description: index of the page with pagination
+      schema:
+        type: integer
+        default: 1
+      required: true
+    pathPageSize:
+      in: path
+      name: pageSize
+      description: size of page in pagination
+      schema:
+        type: integer
+        default: 50
+      required: true

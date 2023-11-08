@@ -341,9 +341,14 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Topics"
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/Author'
+                properties:
+                  topics:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Topics"
   /topics:
     get:
       tags:

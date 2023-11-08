@@ -319,6 +319,34 @@ paths:
           $ref: "#/components/responses/403"
         500:
           $ref: "#/components/responses/500"
+  /books/import:
+    post:
+      tags:
+        - Books
+      operationId: importBooks
+      summary: index Books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/BooksWithoutId"
+      responses:
+        200:
+          description: The list of indexed books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
 components:
   schemas:
     BooksWithoutId:

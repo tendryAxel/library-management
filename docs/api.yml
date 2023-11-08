@@ -321,11 +321,9 @@ paths:
           $ref: "#/components/responses/500"
 components:
   schemas:
-    CrupdateBook:
+    BooksWithoutId:
       type: object
       properties:
-        id:
-          type: string
         bookName:
           type: string
         pageNumbers:
@@ -339,6 +337,12 @@ components:
             - ROMANCE
             - COMEDY
             - OTHER
+    CrupdateBook:
+      allOf:
+        - $ref: "#/components/schemas/BooksWithoutId"
+      properties:
+        id:
+          type: string
     Author:
       type: object
       properties:

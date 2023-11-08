@@ -181,6 +181,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Author'
+  /authors/{page}/{pageSize}:
+    get:
+      tags:
+        - Authors
+      operationId: getAuthor
+      summary: Get all authors
+      description: The returned author are filtered by name
+      parameters:
+        - in: query
+          name: authorName
+          description: Filter the return author by given name
+          required: false
+          schema:
+            type: string
+        - in: path
+          name: page
+          description: index of the page with pagination
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: pageSize
+          description: size of page in pagination
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: The list of filtered author
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Author"
   /authors:
     get:
       tags:

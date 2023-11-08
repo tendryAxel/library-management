@@ -262,88 +262,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Author"
-  /authorTopics:
-    get:
-      tags:
-        - Authors
-      parameters:
-        - in: query
-          name: authorId
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: get all author topics
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Topics"
-  /topics:
-    get:
-      tags:
-        - Topics
-      operationId: getTopics
-      summary: Get all Topics
-      description: The returned topics are filtered by name
-      parameters:
-        - in: query
-          name: topicsName
-          description: Filter the return topics by given name
-          required: false
-          schema:
-            type: string
-      responses:
-        200:
-          description: The list of filtered topics
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Topics"
-    put:
-      tags:
-        - Topics
-      operationId: crupdateTopics
-      summary: Create or update list of topics
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/Topics"
-      responses:
-        200:
-          description: The list of created or updated topics
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Topics"
-    delete:
-      tags:
-        - Topics
-      operationId: deleteTopics
-      summary: delete topics
-      parameters:
-        - in: query
-          name: id
-          description: id of the topics
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: The deleted topics
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Topics"
 components:
   schemas:
     CrupdateBook:
@@ -358,12 +276,7 @@ components:
         releaseDate:
           type: string
           format: date
-    Topics:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
+        topic:
           type: string
           enum:
             - ROMANCE
@@ -388,5 +301,3 @@ components:
       properties:
         author:
           $ref: '#/components/schemas/Author'
-        topic:
-          $ref: "#/components/schemas/Topics"

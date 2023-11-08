@@ -422,6 +422,12 @@ components:
       properties:
         author:
           $ref: '#/components/schemas/Author'
+    importBook:
+      allOf:
+        - $ref: "#/components/schemas/CrupdateBook"
+      properties:
+        authorId:
+          type: string
   parameters:
     queryPage:
       in: query

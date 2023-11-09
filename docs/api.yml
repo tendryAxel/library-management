@@ -421,7 +421,7 @@ components:
             - F
     Author:
       allOf:
-        - $ref: '#/components/schemas/Author'
+        - $ref: '#/components/schemas/AuthorWithoutId'
       properties:
         id:
           type: integer

@@ -438,6 +438,23 @@ components:
       properties:
         authorId:
           type: string
+    DefaultResponse:
+      type: object
+      properties:
+        status:
+          type: object
+          properties:
+            code:
+              type: string
+              enum:
+                - 200
+                - 400
+                - 403
+                - 500
+            message:
+              type: string
+        body:
+          type: object
   parameters:
     queryPage:
       in: query
@@ -474,7 +491,40 @@ components:
   responses:
     400:
       description: bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/DefaultResponse"
+            example:
+              status:
+                code: 400
+                message: bad request
+              body:
     403:
       description: forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/DefaultResponse"
+            example:
+              status:
+                code: 403
+                message: bad request
+              body:
     500:
       description: internal server erreur
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: "#/components/schemas/DefaultResponse"
+            example:
+              status:
+                code: 500
+                message: bad request
+              body:

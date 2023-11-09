@@ -46,9 +46,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Book'
         400:
           $ref: "#/components/responses/400"
         403:
@@ -73,9 +77,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Book'
         400:
           $ref: "#/components/responses/400"
         403:
@@ -104,9 +112,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Book'
         400:
           $ref: "#/components/responses/400"
         403:
@@ -135,9 +147,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Book'
         400:
           $ref: "#/components/responses/400"
         403:
@@ -170,9 +186,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Book'
         400:
           $ref: "#/components/responses/400"
         403:
@@ -198,7 +218,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Author'
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    $ref: '#/components/schemas/Author'
         400:
           $ref: "#/components/responses/400"
         403:
@@ -227,9 +251,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Author"
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Author"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -256,9 +284,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Author"
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Author"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -283,9 +315,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Author"
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Author"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -310,9 +346,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Author"
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Author"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -343,9 +383,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Book"
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Book"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -376,9 +420,13 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Author"
+                allOf:
+                  - $ref: "#/components/schemas/DefaultResponse"
+                properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Author"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -453,6 +501,7 @@ components:
                 - 500
             message:
               type: string
+              example: OK
         body:
           type: object
   parameters:
@@ -513,7 +562,7 @@ components:
             example:
               status:
                 code: 403
-                message: bad request
+                message: forbidden
               body:
     500:
       description: internal server erreur
@@ -526,5 +575,5 @@ components:
             example:
               status:
                 code: 500
-                message: bad request
+                message: internal server erreur
               body:

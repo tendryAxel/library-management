@@ -501,7 +501,7 @@ components:
                 - 500
             message:
               type: string
-              example: OK
+              default: OK
         body:
           type: object
   parameters:
@@ -546,7 +546,7 @@ components:
             type: object
             allOf:
               - $ref: "#/components/schemas/DefaultResponse"
-            example:
+            default:
               status:
                 code: 400
                 message: bad request
@@ -559,7 +559,7 @@ components:
             type: object
             allOf:
               - $ref: "#/components/schemas/DefaultResponse"
-            example:
+            default:
               status:
                 code: 403
                 message: forbidden
@@ -572,7 +572,7 @@ components:
             type: object
             allOf:
               - $ref: "#/components/schemas/DefaultResponse"
-            example:
+            default:
               status:
                 code: 500
                 message: internal server erreur

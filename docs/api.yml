@@ -504,6 +504,8 @@ components:
               default: OK
         body:
           type: object
+          default:
+            message: Succès
   parameters:
     queryPage:
       in: query
@@ -551,6 +553,7 @@ components:
                 code: 400
                 message: bad request
               body:
+                error: Incorrect request
     403:
       description: forbidden
       content:
@@ -564,6 +567,7 @@ components:
                 code: 403
                 message: forbidden
               body:
+                error: access denied
     500:
       description: internal server erreur
       content:
@@ -577,3 +581,4 @@ components:
                 code: 500
                 message: internal server erreur
               body:
+                error: internal server erreur

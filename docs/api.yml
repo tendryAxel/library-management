@@ -276,20 +276,7 @@ paths:
       operationId: importBooks
       summary: index Books
       requestBody:
-        content:
-          application/vnd. ms-excel:
-            schema:
-              type: object
-              properties:
-                sheet1:
-                  type: array
-                  items:
-                    $ref: "#/components/schemas/BooksWithoutId"
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/BooksWithoutId"
+        $ref: "#/components/requestBodies/defaultInputJsonExcelBook"
       responses:
         200:
           $ref: "#/components/responses/bookList"
@@ -306,20 +293,7 @@ paths:
       operationId: importAuthors
       summary: index authors
       requestBody:
-        content:
-          application/vnd. ms-excel:
-            schema:
-              type: object
-              properties:
-                sheet1:
-                  type: array
-                  items:
-                    $ref: "#/components/schemas/AuthorWithoutId"
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/AuthorWithoutId"
+        $ref: "#/components/requestBodies/defaultInputJsonExcelAuthor"
       responses:
         200:
           $ref: "#/components/responses/authorList"
@@ -330,6 +304,29 @@ paths:
         500:
           $ref: "#/components/responses/500"
 components:
+  requestBodies:
+    defaultInputJsonExcelAuthor:
+      content:
+          application/json:
+            schema:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/AuthorWithoutId"
+                - type: string
+                  format: binary
+                  description: excel converted to binary
+    defaultInputJsonExcelBook:
+      content:
+          application/json:
+            schema:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/importBook"
+                - type: string
+                  format: binary
+                  description: excel converted to binary
   schemas:
     idAuthor:
       type: object

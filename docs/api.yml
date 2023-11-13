@@ -542,11 +542,11 @@ components:
           schema:
             allOf:
               - $ref: "#/components/schemas/DefaultResponse"
-            properties:
-              body:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Author"
+              - properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Author"
     bookList:
       description: The list of books
       content:
@@ -554,8 +554,8 @@ components:
           schema:
             allOf:
               - $ref: "#/components/schemas/DefaultResponse"
-            properties:
-              body:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Book"
+              - properties:
+                  body:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Book"

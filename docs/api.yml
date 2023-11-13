@@ -328,6 +328,15 @@ components:
                   format: binary
                   description: excel converted to binary
   schemas:
+    visitor:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        reference:
+          type: string
     idAuthor:
       type: object
       properties:

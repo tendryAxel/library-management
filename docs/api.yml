@@ -112,7 +112,30 @@ paths:
                   type: array
                   description: list of index of books
                   items:
-                    type: integer
+                    type: string
+      responses:
+        200:
+          $ref: "#/components/responses/bookList"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
+  /return:
+    post:
+      description: return the books in the liste
+      tags:
+        - Books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              description: list of index of the books
+              items:
+                type: string
+                description: id of the books
       responses:
         200:
           $ref: "#/components/responses/bookList"

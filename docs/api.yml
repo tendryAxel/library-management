@@ -42,17 +42,7 @@ paths:
         - $ref: "#/components/parameters/queryPageSize"
       responses:
         200:
-          description: The list of filtered books
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/DefaultResponse"
-                properties:
-                  body:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Book'
+          $ref: "#/components/responses/bookList"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -73,17 +63,7 @@ paths:
                 $ref: '#/components/schemas/CrupdateBook'
       responses:
         200:
-          description: The list of created or updated books
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/DefaultResponse"
-                properties:
-                  body:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Book'
+          $ref: "#/components/responses/bookList"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -108,17 +88,7 @@ paths:
           required: true
       responses:
         200:
-          description: The list of books modified
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/DefaultResponse"
-                properties:
-                  body:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Book'
+          $ref: "#/components/responses/bookList"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -143,17 +113,7 @@ paths:
           required: true
       responses:
         200:
-          description: The list of books modified
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/DefaultResponse"
-                properties:
-                  body:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Book'
+          $ref: "#/components/responses/bookList"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -182,17 +142,7 @@ paths:
                     type: string
       responses:
         200:
-          description: The list of 
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/DefaultResponse"
-                properties:
-                  body:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Book'
+          $ref: "#/components/responses/bookList"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -342,17 +292,7 @@ paths:
                 $ref: "#/components/schemas/BooksWithoutId"
       responses:
         200:
-          description: The list of indexed books
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/DefaultResponse"
-                properties:
-                  body:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Book"
+          $ref: "#/components/responses/bookList"
         400:
           $ref: "#/components/responses/400"
         403:
@@ -548,3 +488,15 @@ components:
                 type: array
                 items:
                   $ref: "#/components/schemas/Author"
+    bookList:
+      description: The list of books
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/DefaultResponse"
+            properties:
+              body:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"

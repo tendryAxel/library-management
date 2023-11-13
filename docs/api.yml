@@ -95,6 +95,33 @@ paths:
           $ref: "#/components/responses/403"
         500:
           $ref: "#/components/responses/500"
+  /borrow:
+    post:
+      tags:
+        - Books
+      description: borrow books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                visitor:
+                  $ref: "#/components/schemas/visitor"
+                booksId:
+                  type: array
+                  description: list of index of books
+                  items:
+                    type: integer
+      responses:
+        200:
+          $ref: "#/components/responses/bookList"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
   /books/{bookId}/topics/{topicsId}:
     put:
       tags:

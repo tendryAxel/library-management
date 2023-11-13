@@ -331,6 +331,11 @@ paths:
           $ref: "#/components/responses/500"
 components:
   schemas:
+    idAuthor:
+      type: object
+      properties:
+        id:
+          type: integer
     BooksWithoutId:
       type: object
       properties:
@@ -366,9 +371,7 @@ components:
     Author:
       allOf:
         - $ref: '#/components/schemas/AuthorWithoutId'
-      properties:
-        id:
-          type: integer
+        - $ref: "#/components/schemas/idAuthor"
     Book:
       type: object
       allOf:

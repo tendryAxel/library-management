@@ -104,15 +104,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                visitor:
-                  $ref: "#/components/schemas/visitor"
-                booksId:
-                  type: array
-                  description: list of index of books
-                  items:
-                    type: string
+              type: array
+              items:
+                $ref: "#/components/schemas/BorrowBook"
       responses:
         200:
           $ref: "#/components/responses/bookList"
@@ -459,6 +453,16 @@ components:
               default: OK
         body:
           type: object
+    BorrowBook:
+      type: object
+      properties:
+        visitorId:
+          type: string
+        bookId:
+          type: string
+        borrowDate:
+          type: string
+          format: date-time
   parameters:
     queryPage:
       in: query

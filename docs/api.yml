@@ -476,6 +476,8 @@ components:
         borrowDate:
           type: string
           format: date-time
+        isReturned:
+          type: boolean
   parameters:
     queryPage:
       in: query

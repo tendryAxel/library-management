@@ -1,10 +1,15 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.4
+  version: 1.0.5
   description: STD22075
 servers:
   - url: https://library.com
+tags:
+  - name: Books
+    description: manipulation of book
+  - name: Authors
+    description: manipulation of author
 paths:
   /books:
     get:

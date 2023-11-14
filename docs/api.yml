@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.6
+  version: 1.0.7
   description: STD22075
 servers:
   - url: https://library.com
@@ -25,24 +25,8 @@ paths:
           required: false
           schema:
             type: string
-        - in: query
-          name: releaseDateMin
-          description: |
-            if `releaseDateMax` is not provided,
-            `releaseDateMin` is ignored
-          schema:
-            type: string
-            format: date
-          required: false
-        - in: query
-          name: releaseDateMax
-          description: |
-            if `releaseDateMin` is not provided,
-            `releaseDateMax` is ignored
-          schema:
-            type: string
-            format: date
-          required: false
+        - $ref: "#/components/parameters/startDate"
+        - $ref: "#/components/parameters/endDate"
         - $ref: "#/components/parameters/queryPage"
         - $ref: "#/components/parameters/queryPageSize"
         - in: query
@@ -163,6 +147,8 @@ paths:
           required: true
           schema:
             type: string
+        - $ref: "#/components/parameters/startDate"
+        - $ref: "#/components/parameters/endDate"
       responses:
         200:
           $ref: "#/components/responses/borrowBookList"
@@ -531,6 +517,26 @@ components:
         type: integer
         default: 50
       required: true
+    startDate:
+      in: query
+      name: startDate
+      description: |
+        if `endDate` is not provided,
+        `startDate` is ignored
+      schema:
+        type: string
+        format: date
+      required: false
+    endDate:
+      in: query
+      name: endDate
+      description: |
+        if `startDate` is not provided,
+        `endDate` is ignored
+      schema:
+        type: string
+        format: date
+      required: false
   responses:
     400:
       description: bad request

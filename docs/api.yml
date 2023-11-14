@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.5
+  version: 1.0.6
   description: STD22075
 servers:
   - url: https://library.com
@@ -143,6 +143,26 @@ paths:
               items:
                 type: string
                 description: id of the books
+      responses:
+        200:
+          $ref: "#/components/responses/borrowBookList"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
+  /listBook/{idVisitor}:
+    post:
+      description: return the books of one visitor in the liste
+      tags:
+        - Books
+      parameters:
+        - in: path
+          name: idVisitor
+          required: true
+          schema:
+            type: string
       responses:
         200:
           $ref: "#/components/responses/borrowBookList"

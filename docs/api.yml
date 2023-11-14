@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.3
+  version: 1.0.4
   description: STD22075
 servers:
   - url: https://library.com
@@ -40,6 +40,14 @@ paths:
           required: false
         - $ref: "#/components/parameters/queryPage"
         - $ref: "#/components/parameters/queryPageSize"
+        - in: query
+          name: available
+          description: |
+            if it's `true`, it returns lits of available book
+            if it's `false`, it returns lits of unavailable book
+          required: false
+          schema:
+            type: boolean
       responses:
         200:
           $ref: "#/components/responses/bookList"

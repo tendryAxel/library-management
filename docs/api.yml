@@ -104,14 +104,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                visitorId:
-                  type: string
-                litseBook:
-                  type: array
-                  items:
-                    $ref: "#/components/schemas/Book"
+              type: array
+              items:
+                $ref: "#/components/schemas/BorrowBook"
       responses:
         200:
           $ref: "#/components/responses/borrowBookList"
@@ -137,7 +132,7 @@ paths:
                 description: id of the books
       responses:
         200:
-          $ref: "#/components/responses/bookList"
+          $ref: "#/components/responses/borrowBookList"
         400:
           $ref: "#/components/responses/400"
         403:

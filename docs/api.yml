@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.7
+  version: 1.0.8
   description: STD22075
 servers:
   - url: https://library.com
@@ -141,6 +141,9 @@ paths:
       description: return the books of one visitor in the liste
       tags:
         - Books
+      security:
+        - admin:
+          - read:books
       parameters:
         - in: path
           name: idVisitor
@@ -337,6 +340,9 @@ paths:
       tags:
         - Books
       operationId: importBooks
+      security:
+        - admin:
+          - write:books
       summary: index Books
       requestBody:
         $ref: "#/components/requestBodies/defaultInputJsonExcelBook"
@@ -355,6 +361,9 @@ paths:
         - Authors
       operationId: importAuthors
       summary: index authors
+      security:
+        - admin:
+          - write:author
       requestBody:
         $ref: "#/components/requestBodies/defaultInputJsonExcelAuthor"
       responses:
@@ -367,6 +376,16 @@ paths:
         500:
           $ref: "#/components/responses/500"
 components:
+  securitySchemes:
+    admin:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://library.com
+          scopes:
+            write:books: set list of book
+            write:author: set list of author
+            read:books: get list of book
   requestBodies:
     defaultInputJsonExcelAuthor:
       content:

@@ -1,5 +1,6 @@
 public class LibraryManagementApplication {
     public static void main(String[] args) {
-        throw new RuntimeException("Not supported");
+        String password = java.lang.System.getenv("PG_PASSWORD");
+        System.out.println(password);
     }
 }

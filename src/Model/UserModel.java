@@ -1,9 +1,9 @@
 package Model;
 
 public class UserModel {
-    int id;
-    String name;
-    String reference;
+    protected int id;
+    protected String name;
+    protected String reference;
 
     public int getId() {
         return id;

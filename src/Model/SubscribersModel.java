@@ -1,6 +1,6 @@
 package Model;
 
-public class Subscribers extends UserModel {
+public class SubscribersModel extends UserModel {
     @Override
     public int getId() {
         return super.getId();
@@ -31,10 +31,10 @@ public class Subscribers extends UserModel {
         super.setReference(reference);
     }
 
-    public Subscribers(int id, String name, String reference) {
+    public SubscribersModel(int id, String name, String reference) {
         super(id, name, reference);
     }
 
-    public Subscribers() {
+    public SubscribersModel() {
     }
 }

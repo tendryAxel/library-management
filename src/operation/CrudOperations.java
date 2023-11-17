@@ -1,3 +1,5 @@
+package operation;
+
 import java.util.List;
 
 public interface CrudOperations<T> {

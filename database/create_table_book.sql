@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS "book" (
-    id VARCHAR(50),
+    id VARCHAR(50) PRIMARY KEY,
     bookname VARCHAR(150),
     pagenumbers INT,
     realeasedate DATE,

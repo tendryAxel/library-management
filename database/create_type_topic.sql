@@ -1,0 +1,2 @@
+CREATE TYPE "topic"
+    AS ENUM('COMEDY', 'ROMANCE', 'OTHER');

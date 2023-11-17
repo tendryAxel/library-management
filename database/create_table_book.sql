@@ -3,9 +3,7 @@ CREATE TABLE IF NOT EXISTS "book" (
     bookname VARCHAR(150),
     pagenumbers INT,
     realeasedate DATE,
-    topics VARCHAR(20) CHECk (topics IN (
-        'ROMANCE', 'COMEDY', 'OTHER'
-    ))
+    topics topic
 );
 INSERT INTO "book"
 VALUES(
@@ -26,4 +24,4 @@ VALUES(
         50,
         '2003-03-18',
         'OTHER'
-)
+);

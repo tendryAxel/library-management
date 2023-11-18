@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS "book" (
     bookname VARCHAR(150),
     pagenumbers INT,
     realeasedate DATE,
-    topics topic
+    topics topic,
+    author_id INT REFERENCES "author"(id)
 );
 INSERT INTO "book"
 VALUES(

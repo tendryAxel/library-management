@@ -55,6 +55,13 @@ public class BookModel {
         this.topic = topic;
     }
 
+    public BookModel(int id, String bookName, int pageNumber, String topic) {
+        this.id = id;
+        BookName = bookName;
+        this.pageNumber = pageNumber;
+        this.topic = topic;
+    }
+
     public BookModel() {
     }
 }

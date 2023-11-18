@@ -37,4 +37,9 @@ public class SubscribersModel extends UserModel {
 
     public SubscribersModel() {
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -64,4 +64,15 @@ public class BookModel {
 
     public BookModel() {
     }
+
+    @Override
+    public String toString() {
+        return "BookModel{" +
+                "id=" + id +
+                ", BookName='" + BookName + '\'' +
+                ", Author=" + Author +
+                ", pageNumber=" + pageNumber +
+                ", topic='" + topic + '\'' +
+                '}';
+    }
 }

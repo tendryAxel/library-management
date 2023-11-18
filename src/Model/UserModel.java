@@ -37,4 +37,13 @@ public class UserModel {
 
     public UserModel() {
     }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", reference='" + reference + '\'' +
+                '}';
+    }
 }

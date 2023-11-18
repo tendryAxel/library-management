@@ -37,4 +37,13 @@ public class AuthorModel {
 
     public AuthorModel() {
     }
+
+    @Override
+    public String toString() {
+        return "AuthorModel{" +
+                "id=" + id +
+                ", Name='" + Name + '\'' +
+                ", Sex='" + Sex + '\'' +
+                '}';
+    }
 }

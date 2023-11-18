@@ -37,4 +37,9 @@ public class AdministratorModel extends UserModel{
 
     public AdministratorModel() {
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -13,9 +13,9 @@ public class Connection {
             // Connect
             try {
                 connection = DriverManager.getConnection(
-                        System.getenv("PG_PASSWORD"),
+                        System.getenv("PG_URL"),
                         System.getenv("PG_USER"),
-                        System.getenv("PG_URL")
+                        System.getenv("PG_PASSWORD")
                 );
                 System.out.println("Connected");
             } catch (SQLException | NullPointerException e) {

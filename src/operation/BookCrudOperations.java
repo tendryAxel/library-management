@@ -21,7 +21,7 @@ public class BookCrudOperations implements CrudOperations<BookModel>{
                     resultSet.getInt("id"),
                     resultSet.getString("bookname"),
                     resultSet.getInt("pagenumbers"),
-                    resultSet.getString("topic")
+                    resultSet.getString("topics")
             ));
         }
         return result;

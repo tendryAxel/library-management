@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS "book" (
     pagenumbers INT,
     realeasedate DATE,
     topics topic,
-    author_id INT REFERENCES "author"(id)
+    author_id VARCHAR(50) REFERENCES "author"(id)
 );
 INSERT INTO "book"
 VALUES(

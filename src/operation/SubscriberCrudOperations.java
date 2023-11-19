@@ -19,7 +19,7 @@ public class SubscriberCrudOperations implements CrudOperations<SubscribersModel
         while (resultSet.next()){
             result.add(new SubscribersModel(
                     resultSet.getString("id"),
-                    resultSet.getString("subscribername"),
+                    resultSet.getString("name"),
                     resultSet.getString("reference")
             ));
         }

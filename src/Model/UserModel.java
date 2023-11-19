@@ -1,15 +1,15 @@
 package Model;
 
 public class UserModel {
-    protected int id;
+    protected String id;
     protected String name;
     protected String reference;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,7 +29,7 @@ public class UserModel {
         this.reference = reference;
     }
 
-    public UserModel(int id, String name, String reference) {
+    public UserModel(String id, String name, String reference) {
         this.id = id;
         this.name = name;
         this.reference = reference;

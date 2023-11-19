@@ -2,12 +2,12 @@ package Model;
 
 public class AdministratorModel extends UserModel{
     @Override
-    public int getId() {
+    public String getId() {
         return super.getId();
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(String id) {
         super.setId(id);
     }
 
@@ -31,7 +31,7 @@ public class AdministratorModel extends UserModel{
         super.setReference(reference);
     }
 
-    public AdministratorModel(int id, String name, String reference) {
+    public AdministratorModel(String id, String name, String reference) {
         super(id, name, reference);
     }
 

@@ -1,15 +1,15 @@
 package Model;
 
 public class AuthorModel {
-    int id;
+    String id;
     String Name;
     String Sex;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,7 +29,7 @@ public class AuthorModel {
         Sex = sex;
     }
 
-    public AuthorModel(int id, String name, String sex) {
+    public AuthorModel(String id, String name, String sex) {
         this.id = id;
         Name = name;
         Sex = sex;

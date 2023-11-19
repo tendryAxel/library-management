@@ -1,17 +1,18 @@
 package Model;
 
 public class BookModel {
-    int id;
+    String id;
     String BookName;
-    AuthorModel Author;
     int pageNumber;
+    String releaseDate;
     String topic;
+    AuthorModel Author;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -23,20 +24,20 @@ public class BookModel {
         BookName = bookName;
     }
 
-    public AuthorModel getAuthor() {
-        return Author;
-    }
-
-    public void setAuthor(AuthorModel author) {
-        Author = author;
-    }
-
     public int getPageNumber() {
         return pageNumber;
     }
 
     public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getTopic() {
@@ -47,18 +48,28 @@ public class BookModel {
         this.topic = topic;
     }
 
-    public BookModel(int id, String bookName, AuthorModel author, int pageNumber, String topic) {
-        this.id = id;
-        BookName = bookName;
-        Author = author;
-        this.pageNumber = pageNumber;
-        this.topic = topic;
+    public AuthorModel getAuthor() {
+        return Author;
     }
 
-    public BookModel(int id, String bookName, int pageNumber, String topic) {
+    public void setAuthor(AuthorModel author) {
+        Author = author;
+    }
+
+    public BookModel(String id, String bookName, int pageNumber, String releaseDate, String topic, AuthorModel author) {
         this.id = id;
         BookName = bookName;
         this.pageNumber = pageNumber;
+        this.releaseDate = releaseDate;
+        this.topic = topic;
+        Author = author;
+    }
+
+    public BookModel(String id, String bookName, int pageNumber, String releaseDate, String topic) {
+        this.id = id;
+        BookName = bookName;
+        this.pageNumber = pageNumber;
+        this.releaseDate = releaseDate;
         this.topic = topic;
     }
 
@@ -68,11 +79,12 @@ public class BookModel {
     @Override
     public String toString() {
         return "BookModel{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", BookName='" + BookName + '\'' +
-                ", Author=" + Author +
                 ", pageNumber=" + pageNumber +
+                ", releaseDate='" + releaseDate + '\'' +
                 ", topic='" + topic + '\'' +
+                ", Author=" + Author +
                 '}';
     }
 }

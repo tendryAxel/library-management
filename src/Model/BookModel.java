@@ -1,10 +1,12 @@
 package Model;
 
+import java.util.Date;
+
 public class BookModel {
     String id;
     String BookName;
     int pageNumber;
-    String releaseDate;
+    Date releaseDate;
     String topic;
     AuthorModel Author;
 
@@ -32,11 +34,11 @@ public class BookModel {
         this.pageNumber = pageNumber;
     }
 
-    public String getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -56,7 +58,7 @@ public class BookModel {
         Author = author;
     }
 
-    public BookModel(String id, String bookName, int pageNumber, String releaseDate, String topic, AuthorModel author) {
+    public BookModel(String id, String bookName, int pageNumber, Date releaseDate, String topic, AuthorModel author) {
         this.id = id;
         BookName = bookName;
         this.pageNumber = pageNumber;
@@ -65,7 +67,7 @@ public class BookModel {
         Author = author;
     }
 
-    public BookModel(String id, String bookName, int pageNumber, String releaseDate, String topic) {
+    public BookModel(String id, String bookName, int pageNumber, Date releaseDate, String topic) {
         this.id = id;
         BookName = bookName;
         this.pageNumber = pageNumber;

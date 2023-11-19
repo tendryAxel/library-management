@@ -30,8 +30,15 @@ public class BookCrudOperations implements CrudOperations<BookModel>{
     }
 
     @Override
-    public List<BookModel> saveAll(List<BookModel> toSave) throws SQLException {
-        return null;
+    public List<BookModel> saveAll(List<BookModel> toSave){
+        toSave.forEach(book -> {
+            try {
+                save(book);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        return toSave;
     }
 
     @Override

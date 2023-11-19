@@ -19,7 +19,7 @@ public class AuthorCrudOperations implements CrudOperations<AuthorModel>{
         while (resultSet.next()){
             result.add(new AuthorModel(
                     resultSet.getString("id"),
-                    resultSet.getString(" name"),
+                    resultSet.getString("name"),
                     resultSet.getString("sex")
             ));
         }

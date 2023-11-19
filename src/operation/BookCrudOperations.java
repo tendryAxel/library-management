@@ -48,7 +48,7 @@ public class BookCrudOperations implements CrudOperations<BookModel>{
         preparedStatement.setString(1, toSave.getId());
         preparedStatement.setString(2, toSave.getBookName());
         preparedStatement.setInt(3, toSave.getPageNumber());
-        preparedStatement.setDate(4, (Date) toSave.getReleaseDate());
+        preparedStatement.setDate(4, toSave.getReleaseDate());
         preparedStatement.executeUpdate();
         return toSave;
     }

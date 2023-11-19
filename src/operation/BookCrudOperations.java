@@ -54,7 +54,11 @@ public class BookCrudOperations implements CrudOperations<BookModel>{
     }
 
     @Override
-    public BookModel delete(BookModel toDelete) {
-        return null;
+    public BookModel delete(BookModel toDelete) throws SQLException {
+        String psql = "DELETE FROM \"book\" WHERE id= ?;";
+        PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(psql);
+        preparedStatement.setString(1, toDelete.getId());
+        preparedStatement.executeUpdate();
+        return toDelete;
     }
 }

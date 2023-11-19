@@ -10,3 +10,7 @@ Add environmental variable:
 - PG_PASSWORD : password of postgres user
 - PG_USER : the postgres user
 - PG_URL : the url of the database
+
+- run:
+  - ```javac -cp .;C:\Users\TENDRY\Downloads\postgresql-42.6.0.jar -d E:\HEI\L2\PROG3\new\library-management\out\mien src\LibraryManagementApplication.java src\Model\*.java src\operation\*.java```
+  - ```java -cp .;C:\Users\TENDRY\Downloads\postgresql-42.6.0.jar;E:\HEI\L2\PROG3\new\library-management\out\mien LibraryManagementApplication```
